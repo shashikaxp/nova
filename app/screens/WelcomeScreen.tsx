@@ -12,14 +12,16 @@ const WelcomeScreen = (props: any) => {
       source={require("./../assets/images/background.jpg")} >
       <View style={styles.logoContainer}>
         <Image style={styles.logo} source={require("../assets/images/logo.png")} />
-        <Text>Sell Everything</Text>
+        <Text style={styles.tagLine}>Sell Everything</Text>
       </View>
+      <View style={styles.buttonWrapper}>
       <AppButton
-        color={colors.primary} title="Login" onPress={() => console.log("asd")
+        color="primary" title="Login" onPress={() => console.log("asd")
         }
       />
       <AppButton
-        color={colors.secondary} title="Register" onPress={() => console.log("asd")} />
+        color="secondary" title="Register" onPress={() => console.log("asd")} />
+      </View>
     </ImageBackground >
   );
 }
@@ -30,9 +32,9 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
     alignItems: "center"
   },
-  loginButton: {
-    height: 70,
-    backgroundColor: "#f4d35eff",
+  buttonWrapper: {
+    marginBottom: 50,
+    paddingHorizontal: 10,
     width: "100%"
   },
   logo: {
@@ -41,13 +43,13 @@ const styles = StyleSheet.create({
   },
   logoContainer: {
     position: "absolute",
-    top: 70,
+    top: 150,
     alignItems: "center"
   },
-  registerButton: {
-    height: 70,
-    backgroundColor: "#ee964bff",
-    width: "100%"
+  tagLine: {
+    fontSize: 20,
+    fontWeight: "600",
+    marginTop: 10
   }
 })
 

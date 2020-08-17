@@ -6,8 +6,8 @@
 // #8a25b1
 
 export default {
-  primary: "#1e90ffff",
-  secondary: "#8a25b1",
-  black: "#1f271bff",
-  white: "#fcf7ffff"
+  "primary": "#1e90ffff",
+  "secondary": "#8a25b1",
+  "black": "#1f271bff",
+  "white": "#fcf7ffff"
 }

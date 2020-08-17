@@ -1,15 +1,19 @@
 import React from 'react';
 import { Text, TouchableOpacity, StyleSheet } from 'react-native';
 
+import colors from "./../config/colors";
+
 export interface Props {
   title: string,
-  color: string,
+  color: keyof typeof colors,
   onPress: () => void
 }
 
-const AppButton: React.FC<Props> = ({ title, color, onPress }) => {
+const AppButton: React.FC<Props> = ({ title, color = "primary", onPress }) => {
   return (
-    <TouchableOpacity style={styles.button} onPress={onPress}>
+    <TouchableOpacity 
+      style={[styles.button, { backgroundColor: colors[color] }]} 
+      onPress={onPress}>
       <Text style={styles.text}>{title}</Text>
     </TouchableOpacity>
   );
@@ -20,7 +24,6 @@ const styles = StyleSheet.create({
     width: "100%",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "dodgerblue",
     padding: 10,
     borderRadius: 25,
     marginVertical: 5
