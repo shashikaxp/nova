@@ -8,6 +8,8 @@
 export default {
   "primary": "#1e90ffff",
   "secondary": "#8a25b1",
+  "tertiary": "#f4d35eff",
   "black": "#1f271bff",
-  "white": "#fcf7ffff"
+  "white": "#fcf7ffff",
+  "medium": "#6e6969"
 }

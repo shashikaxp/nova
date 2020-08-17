@@ -2,7 +2,6 @@ import React from 'react';
 import { View, ImageBackground, StyleSheet, Image, Text } from 'react-native';
 
 import AppButton from '../components/AppButton';
-import colors from "../config/colors";
 
 const WelcomeScreen = (props: any) => {
   return (
@@ -15,12 +14,11 @@ const WelcomeScreen = (props: any) => {
         <Text style={styles.tagLine}>Sell Everything</Text>
       </View>
       <View style={styles.buttonWrapper}>
-      <AppButton
-        color="primary" title="Login" onPress={() => console.log("asd")
-        }
-      />
-      <AppButton
-        color="secondary" title="Register" onPress={() => console.log("asd")} />
+        <AppButton
+          color="primary" title="Login" onPress={() => console.log("asd")}
+        />
+        <AppButton
+          color="secondary" title="Register" onPress={() => console.log("asd")} />
       </View>
     </ImageBackground >
   );
