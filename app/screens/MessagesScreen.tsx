@@ -29,6 +29,7 @@ const initialMessages = [
 const MessagesScreen: React.FC = () => {
 
   const [messages, setMessages] = useState(initialMessages);
+  const [refreshing, setRefreshing] = useState(false);
 
   let deleteMessage = (item: any) => {
     setMessages(messages.filter(message => message.id !== item.id));
@@ -47,6 +48,8 @@ const MessagesScreen: React.FC = () => {
             onPress={() => deleteMessage(item)}
           />}
         ItemSeparatorComponent={ListItemSeperator}
+        refreshing={refreshing}
+        onRefresh={() => setMessages(initialMessages)}
       />
     </Screen>
   );

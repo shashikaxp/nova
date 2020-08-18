@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView, StyleSheet } from 'react-native';
 
 interface Props {
 
@@ -7,12 +7,16 @@ interface Props {
 
 const Screen: React.FC<Props> = ({ children }) => {
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.screen}>
       {children}
     </SafeAreaView>
   );
 }
 
-
+const styles = StyleSheet.create({
+  screen: {
+    flex: 1
+  }
+})
 
 export default Screen;
