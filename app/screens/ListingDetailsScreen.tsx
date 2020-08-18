@@ -15,7 +15,10 @@ const ListingDetailsScreen = () => {
         <AppText style={styles.title}>Red Jacket for sale</AppText>
         <AppText style={styles.subTitle}>$100</AppText>
         <View style={styles.userWrapper}>
-          <ListItem />
+          <ListItem
+            title="Shashika Weerakkody"
+            subtitle="$100"
+            image={require("../assets/images/mosh.jpg")} />
         </View>
       </View>
     </View>
