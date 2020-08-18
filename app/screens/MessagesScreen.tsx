@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FlatList } from 'react-native';
 
 import ListItem from '../components/ListItem';
 import Screen from "./../components/Screen";
 import ListItemSeperator from '../components/ListItemSeperator';
 
-const data = [
+const initialMessages = [
   {
     id: 1,
     title: "T1",
@@ -21,22 +21,31 @@ const data = [
   {
     id: 3,
     title: "T3",
-    description: "T3 des",
+    description: "T3 dest",
     image: require("./../assets/images/mosh.jpg")
   }
 ]
 
 const MessagesScreen: React.FC = () => {
+
+  const [messages, setMessages] = useState(initialMessages);
+
+  let deleteMessage = (item: any) => {
+    setMessages(messages.filter(message => message.id !== item.id));
+  }
+
   return (
     <Screen>
       <FlatList
-        data={data}
+        data={messages}
         keyExtractor={(message) => message.id.toString()}
         renderItem={({ item }) =>
           <ListItem
             title={item.title}
             subtitle={item.description}
-            image={item.image} />}
+            image={item.image}
+            onPress={() => deleteMessage(item)}
+          />}
         ItemSeparatorComponent={ListItemSeperator}
       />
     </Screen>
