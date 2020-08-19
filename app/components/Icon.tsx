@@ -4,9 +4,9 @@ import { MaterialCommunityIcons } from "@expo/vector-icons"
 
 interface Props {
   name: string,
-  size: number,
-  backgroundColor: string,
-  forgroundColor: string
+  size?: number,
+  backgroundColor?: string,
+  forgroundColor?: string
 }
 
 const Icon: React.FC<Props> = ({

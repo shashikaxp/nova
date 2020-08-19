@@ -8,22 +8,24 @@ import ListItemDeleteAction from './ListItemDeleteAction';
 
 interface Props {
   title: string,
-  subtitle: string,
-  image: ImageSourcePropType,
-  onPress: () => void
+  subtitle?: string,
+  image?: ImageSourcePropType,
+  IconComponent?: React.ReactNode,
+  onPress?: () => void
 }
 
-const ListItem: React.FC<Props> = ({ title, subtitle, image, onPress }) => {
+const ListItem: React.FC<Props> = ({ title, subtitle, image, IconComponent, onPress = () => { console.log("redda") } }) => {
   return (
     <Swipeable
       renderRightActions={() => <ListItemDeleteAction onPress={onPress} />}
     >
       <TouchableHighlight underlayColor={colors.lightGray} onPress={onPress}>
         <View style={styles.itemWrapper}>
-          <Image style={styles.image} source={image} />
-          <View>
+          {IconComponent}
+          {image && <Image style={styles.image} source={image} />}
+          <View style={styles.detailsWrapper}>
             <AppText style={styles.title}>{title}</AppText>
-            <AppText style={styles.subTitle}>{subtitle}</AppText>
+            {subtitle && <AppText style={styles.subTitle}>{subtitle}</AppText>}
           </View>
         </View>
       </TouchableHighlight >
@@ -32,15 +34,20 @@ const ListItem: React.FC<Props> = ({ title, subtitle, image, onPress }) => {
 }
 
 const styles = StyleSheet.create({
+  detailsWrapper: {
+    marginLeft: 10,
+    justifyContent: "center"
+  },
   itemWrapper: {
+    backgroundColor: "#fff",
     flexDirection: "row",
-    padding: 15
+    padding: 15,
+    alignItems: "center"
   },
   image: {
     height: 70,
     width: 70,
     borderRadius: 35,
-    marginRight: 10
   },
   title: {
     fontWeight: "400"

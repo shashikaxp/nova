@@ -1,13 +1,13 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet } from 'react-native';
+import { SafeAreaView, StyleSheet, StyleProp, ViewStyle } from 'react-native';
 
 interface Props {
-
+  style?: StyleProp<ViewStyle>
 }
 
-const Screen: React.FC<Props> = ({ children }) => {
+const Screen: React.FC<Props> = ({ children, style }) => {
   return (
-    <SafeAreaView style={styles.screen}>
+    <SafeAreaView style={[styles.screen, style]}>
       {children}
     </SafeAreaView>
   );
