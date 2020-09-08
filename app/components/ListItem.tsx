@@ -19,7 +19,7 @@ const ListItem: React.FC<Props> = ({ title, subtitle, image, IconComponent, onPr
     <Swipeable
       renderRightActions={() => <ListItemDeleteAction onPress={onPress} />}
     >
-      <TouchableHighlight underlayColor={colors.lightGray} onPress={onPress}>
+      <TouchableHighlight underlayColor={colors.light} onPress={onPress}>
         <View style={styles.itemWrapper}>
           {IconComponent}
           {image && <Image style={styles.image} source={image} />}

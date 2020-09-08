@@ -12,7 +12,7 @@ const ListItemSeperator: React.FC = () => {
 const styles = StyleSheet.create({
   seperator: {
     height: 1,
-    backgroundColor: colors.lightGray,
+    backgroundColor: colors.light,
     width: "100%"
   }
 })
