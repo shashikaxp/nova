@@ -4,7 +4,7 @@ import { StyleSheet } from "react-native";
 import colors from "../config/colors";
 import AppText from "./AppText";
 
-const ErrorMessage: React.FC<{}> = ({ children }) => {
+const AppErrorMessage: React.FC<{}> = ({ children }) => {
   return <AppText style={styles.container}>{children}</AppText>;
 };
 
@@ -14,4 +14,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ErrorMessage;
+export default AppErrorMessage;
