@@ -18,7 +18,7 @@ interface Props {
   icon?: string;
   placeholder: string;
   items: Array<any>;
-  selectedItem: any;
+  selectedItem?: any;
   onSelectedItem: (item: any) => void;
 }
 
@@ -43,9 +43,13 @@ const AppPicker: React.FC<Props> = ({
               size={20}
             />
           )}
-          <AppText style={styles.text}>
-            {selectedItem ? selectedItem.label : placeholder}
-          </AppText>
+
+          {selectedItem ? (
+            <AppText style={styles.text}> {selectedItem.label} </AppText>
+          ) : (
+            <AppText style={styles.placeholder}> {placeholder} </AppText>
+          )}
+
           <MaterialCommunityIcons
             color={colors.medium}
             name="chevron-down"
@@ -53,6 +57,7 @@ const AppPicker: React.FC<Props> = ({
           />
         </View>
       </TouchableWithoutFeedback>
+
       <Modal visible={isModalOpen} animationType="slide">
         <Screen>
           <Button title="Close" onPress={() => setIsModalOpen(false)} />
@@ -86,8 +91,13 @@ const styles = StyleSheet.create({
   icon: {
     marginRight: 10,
   },
+  placeholder: {
+    flex: 1,
+    color: colors.medium,
+  },
   text: {
     flex: 1,
+    color: colors.black,
   },
 });
 
