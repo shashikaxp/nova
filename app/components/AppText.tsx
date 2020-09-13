@@ -1,21 +1,21 @@
-import React from 'react';
-import { Text, StyleSheet, Platform, TextProperties } from 'react-native';
+import React from "react";
+import { Text, StyleSheet, Platform, TextProps } from "react-native";
 
-interface Props extends TextProperties {
+interface Props extends TextProps {}
 
-}
-
-const AppText: React.FC<Props> = ({ children, style }) => {
+const AppText: React.FC<Props> = ({ children, style, ...otherProps }) => {
   return (
-    <Text style={[styles.text, style]}>{children}</Text>
+    <Text {...otherProps} style={[styles.text, style]}>
+      {children}
+    </Text>
   );
-}
+};
 
 const styles = StyleSheet.create({
   text: {
     fontSize: 18,
-    fontFamily: Platform.OS === 'android' ? "Roboto" : "Avenir"
-  }
-})
+    fontFamily: Platform.OS === "android" ? "Roboto" : "Avenir",
+  },
+});
 
 export default AppText;

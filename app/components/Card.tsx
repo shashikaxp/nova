@@ -1,13 +1,19 @@
-import React from 'react';
-import { View, StyleSheet, Image, ImageSourcePropType, Text } from 'react-native';
+import React from "react";
+import {
+  View,
+  StyleSheet,
+  Image,
+  ImageSourcePropType,
+  Text,
+} from "react-native";
 
-import AppText from "./AppText"
+import AppText from "./AppText";
 import colors from "./../config/colors";
 
 interface Props {
-  title: string,
-  subTitle: string,
-  image: ImageSourcePropType
+  title: string;
+  subTitle: string;
+  image: ImageSourcePropType;
 }
 
 const Card: React.FC<Props> = ({ title, subTitle, image }) => {
@@ -15,22 +21,26 @@ const Card: React.FC<Props> = ({ title, subTitle, image }) => {
     <View style={styles.card}>
       <Image style={styles.image} source={image} />
       <View style={styles.detailsContainer}>
-        <AppText style={styles.title}>{title}</AppText>
-        <AppText style={styles.subtitle}>{subTitle}</AppText>
+        <AppText style={styles.title} numberOfLines={1}>
+          {title}
+        </AppText>
+        <AppText style={styles.subtitle} numberOfLines={2}>
+          {subTitle}
+        </AppText>
       </View>
-    </View >
+    </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   card: {
     backgroundColor: colors.white,
     borderRadius: 15,
     marginBottom: 20,
-    overflow: "hidden"
+    overflow: "hidden",
   },
   detailsContainer: {
-    padding: 20
+    padding: 20,
   },
   image: {
     width: "100%",
@@ -39,12 +49,12 @@ const styles = StyleSheet.create({
   subtitle: {
     fontSize: 18,
     color: colors.primary,
-    fontWeight: "bold"
+    fontWeight: "bold",
   },
   title: {
     fontSize: 20,
-    marginBottom: 2
-  }
-})
+    marginBottom: 2,
+  },
+});
 
 export default Card;
