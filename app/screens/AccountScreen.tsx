@@ -1,27 +1,27 @@
-import React from 'react';
-import { View, StyleSheet, FlatList, ImageComponent } from 'react-native';
+import React from "react";
+import { View, StyleSheet, FlatList, ImageComponent } from "react-native";
 
-import Screen from "../components/Screen"
-import ListItem from '../components/ListItem';
+import Screen from "../components/Screen";
+import ListItem from "../components/ListItem";
 import colors from "../config/colors";
-import ListItemSeperator from '../components/ListItemSeperator';
-import Icon from '../components/Icon';
+import ListItemSeperator from "../components/ListItemSeperator";
+import Icon from "../components/Icon";
 
 const menuItems = [
   {
     title: "My Listing",
     icon: {
       name: "format-list-bulleted",
-      backgroundColor: colors.primary
-    }
+      backgroundColor: colors.primary,
+    },
   },
   {
     title: "My Messages",
     icon: {
       name: "email",
-      backgroundColor: colors.secondary
-    }
-  }
+      backgroundColor: colors.secondary,
+    },
+  },
 ];
 
 const AccountScreen = () => {
@@ -31,20 +31,25 @@ const AccountScreen = () => {
         <ListItem
           image={require("../assets/images/mosh.jpg")}
           title="Shashika Weerakkody"
-          subtitle="shashikaxp@gmail.com"></ListItem>
+          subtitle="shashikaxp@gmail.com"
+        ></ListItem>
       </View>
       <View style={styles.container}>
         <FlatList
           data={menuItems}
-          keyExtractor={item => item.title}
+          keyExtractor={(item) => item.title}
           ItemSeparatorComponent={ListItemSeperator}
-          renderItem={({ item }) =>
+          renderItem={({ item }) => (
             <ListItem
               title={item.title}
-              IconComponent={<Icon name={item.icon.name} backgroundColor={item.icon.backgroundColor} />}
+              IconComponent={
+                <Icon
+                  name={item.icon.name}
+                  backgroundColor={item.icon.backgroundColor}
+                />
+              }
             />
-
-          }
+          )}
         />
       </View>
       <View style={styles.container}>
@@ -55,15 +60,15 @@ const AccountScreen = () => {
       </View>
     </Screen>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
-    marginVertical: 10
+    marginVertical: 10,
   },
   screen: {
-    backgroundColor: colors.lightGray
-  }
-})
+    backgroundColor: colors.light,
+  },
+});
 
 export default AccountScreen;
