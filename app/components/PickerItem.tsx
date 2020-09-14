@@ -3,14 +3,14 @@ import { StyleSheet, TouchableOpacity } from "react-native";
 import AppText from "./AppText";
 
 interface Props {
-  label: string;
+  item: any;
   onPress: () => void;
 }
 
-const PickerComponent: React.FC<Props> = ({ label, onPress }) => {
+const PickerItem: React.FC<Props> = ({ item, onPress }) => {
   return (
     <TouchableOpacity onPress={onPress}>
-      <AppText style={styles.text}>{label}</AppText>
+      <AppText style={styles.text}>{item.label}</AppText>
     </TouchableOpacity>
   );
 };
@@ -21,4 +21,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default PickerComponent;
+export default PickerItem;

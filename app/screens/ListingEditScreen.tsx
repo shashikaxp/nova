@@ -9,6 +9,7 @@ import AppErrorMessage from "../components/AppErrorMessage";
 import AppPicker from "../components/AppPicker";
 import AppTextInput from "../components/AppTextInput";
 import Screen from "./../components/Screen";
+import CategoryPickerItem from "../components/CategoryPickerItem";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
@@ -18,10 +19,13 @@ const validationSchema = Yup.object().shape({
 });
 
 const categories = [
-  { label: "Clothes", value: 1 },
-  { label: "Furniture", value: 2 },
-  { label: "Electornics", value: 3 },
-  { label: "Vehicles", value: 4 },
+  { value: 1, label: "Furniture", icon: "floor-lamp", color: "#fc5c65" },
+  { value: 2, label: "Cars", icon: "car", color: "#fd9644" },
+  { value: 3, label: "Cameras", icon: "camera", color: "#fed330" },
+  { value: 4, label: "Games", icon: "cards", color: "#26de81" },
+  { value: 5, label: "Clothing", icon: "shoe-heel", color: "#2bcbba" },
+  { value: 6, label: "Sports", icon: "basketball", color: "#45aaf2" },
+  { value: 7, label: "Movies & Music", icon: "headphones", color: "#4b7bec" },
 ];
 
 const initialValues = {
@@ -57,8 +61,10 @@ const ListingEditScreen = () => {
             <ErrorMessage component={AppErrorMessage} name="price" />
             <AppPicker
               items={categories}
+              numberOfColumns={3}
               selectedItem={values.category}
               placeholder="Category"
+              PickerItemComponent={CategoryPickerItem}
               onSelectedItem={(item) => setFieldValue("category", item)}
             />
             <ErrorMessage component={AppErrorMessage} name="category" />

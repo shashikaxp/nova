@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { ReactPropTypes, useState } from "react";
 import {
   StyleSheet,
   View,
@@ -10,12 +10,14 @@ import {
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import colors from "./../config/colors";
-import PickerComponent from "./PickerComponent";
+import PickerItem from "./PickerItem";
 import AppText from "./AppText";
 import Screen from "./Screen";
 
 interface Props {
   icon?: string;
+  numberOfColumns?: number;
+  PickerItemComponent?: React.FC<any>;
   placeholder: string;
   items: Array<any>;
   selectedItem?: any;
@@ -25,9 +27,11 @@ interface Props {
 const AppPicker: React.FC<Props> = ({
   icon,
   items,
+  numberOfColumns = 1,
   onSelectedItem,
   placeholder,
   selectedItem,
+  PickerItemComponent = PickerItem,
 }) => {
   let [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -63,10 +67,11 @@ const AppPicker: React.FC<Props> = ({
           <Button title="Close" onPress={() => setIsModalOpen(false)} />
           <FlatList
             data={items}
+            numColumns={numberOfColumns}
             keyExtractor={(item) => item.value.toString()}
             renderItem={({ item }) => (
-              <PickerComponent
-                label={item.label}
+              <PickerItemComponent
+                item={item}
                 onPress={() => {
                   onSelectedItem(item);
                   setIsModalOpen(false);
