@@ -6,10 +6,10 @@ import * as Yup from "yup";
 
 import AppButton from "../components/AppButton";
 import AppErrorMessage from "../components/AppErrorMessage";
-import AppPicker from "../components/AppPicker";
+import AppPicker from "../components/picker/AppPicker";
 import AppTextInput from "../components/AppTextInput";
 import Screen from "./../components/Screen";
-import CategoryPickerItem from "../components/CategoryPickerItem";
+import CategoryPickerItem from "../components/picker/CategoryPickerItem";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),

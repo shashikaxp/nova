@@ -1,11 +1,11 @@
-import React from 'react';
-import { View, StyleSheet, TouchableWithoutFeedback } from 'react-native';
-import { MaterialCommunityIcons } from "@expo/vector-icons"
+import React from "react";
+import { View, StyleSheet, TouchableWithoutFeedback } from "react-native";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-import colors from "./../config/colors";
+import colors from "../../config/colors";
 
 interface Props {
-  onPress: () => void
+  onPress: () => void;
 }
 
 const ListItemDeleteAction: React.FC<Props> = ({ onPress }) => {
@@ -16,15 +16,15 @@ const ListItemDeleteAction: React.FC<Props> = ({ onPress }) => {
       </View>
     </TouchableWithoutFeedback>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.danger,
     width: 70,
     alignItems: "center",
-    justifyContent: "center"
-  }
-})
+    justifyContent: "center",
+  },
+});
 
 export default ListItemDeleteAction;

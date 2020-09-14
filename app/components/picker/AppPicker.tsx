@@ -9,10 +9,10 @@ import {
 } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-import colors from "./../config/colors";
+import colors from "../../config/colors";
 import PickerItem from "./PickerItem";
-import AppText from "./AppText";
-import Screen from "./Screen";
+import AppText from "../AppText";
+import Screen from "../Screen";
 
 interface Props {
   icon?: string;
