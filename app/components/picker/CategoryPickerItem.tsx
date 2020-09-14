@@ -11,7 +11,7 @@ interface Props {
 const CategoryPickerItem: React.FC<Props> = ({ item, onPress }) => {
   const styles = StyleSheet.create({
     container: {
-      paddingHorizontal: 30,
+      paddingHorizontal: 10,
       paddingVertical: 15,
       width: "33%",
       alignItems: "center",
